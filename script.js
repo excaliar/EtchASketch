@@ -13,3 +13,10 @@ for (let i = 0; i < 16; i++) {
         subContainer[i].appendChild(row[j]);
     }
 }
+
+const boxes = document.querySelectorAll('.row')
+boxes.forEach((box) => {
+    box.addEventListener('mouseover', () => {
+        box.style.cssText = 'background: black';
+    });
+});
