@@ -1,0 +1,10 @@
+.subContainer {
+    display: flex
+}
+
+.row {
+    border-style: solid;
+    width: 10px;
+    height: auto;
+    padding: 10px;
+}
