@@ -1,10 +1,38 @@
+body {
+    display: flex;
+    gap: 10px;
+}
+
+
+.container {
+    border: solid;
+    padding: 0px;
+}
+
 .subContainer {
-    display: flex
+    display: flex;
 }
 
 .row {
+    padding: 15px;
     border-style: solid;
-    width: 10px;
-    height: auto;
-    padding: 10px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 35%;
+    background: red;
+    outline: none;
+    opacity: 0.8;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.gridSize {
+    text-align: center;
 }

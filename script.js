@@ -1,7 +1,7 @@
 
 //nested loops to create 16x16 grid
-var subContainer = [];
-var row = [] 
+let subContainer = [];
+let row = [] 
 const container = document.querySelector('.container');
 for (let i = 0; i < 16; i++) {
     subContainer[i] = document.createElement('div')
@@ -14,9 +14,55 @@ for (let i = 0; i < 16; i++) {
     }
 }
 
-const boxes = document.querySelectorAll('.row')
+//assigns gridboxes to variables
+let boxes = document.querySelectorAll('.row')
+let subs = document.querySelectorAll('.subContainer')
+
+//change slider value
+let slide = document.querySelector('.slider');
+let gridSize = document.querySelector('.gridSize');
+gridSize.textContent = `${slide.value} x ${slide.value}`;
+
+//changes color of individual box in grid upon mouse hover
 boxes.forEach((box) => {
     box.addEventListener('mouseover', () => {
         box.style.cssText = 'background: black';
     });
+});
+
+slide.addEventListener('change', () => {
+    gridSize.textContent = `${slide.value} x ${slide.value}`;
+    
+    //clear array
+    subContainer = []
+    row = []
+
+    //deletes old grid
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+
+    //creates grid of new size
+    for (let i = 0; i < slide.value; i++) {
+        subContainer[i] = document.createElement('div')
+        subContainer[i].classList.add('subContainer');
+        container.appendChild(subContainer[i]);
+        for (let j = 0; j < slide.value; j++) {
+            row[j] = document.createElement('div');
+            row[j].classList.add('row')
+            subContainer[i].appendChild(row[j]);
+        }
+    }
+
+    //reassigns variables to new box
+    boxes = document.querySelectorAll('.row')
+    subs = document.querySelectorAll('.subContainer')
+
+    //changes color of individual box in grid upon mouse hover
+    boxes.forEach((box) => {
+        box.addEventListener('mouseover', () => {
+            box.style.cssText = 'background: black';
+        });
+    });
+
 });
