@@ -63,7 +63,10 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    border-style: solid;
     align-items: center;
+    margin: auto;
+    background-color: white;
 }
 
 .subContainer {
@@ -71,9 +74,7 @@ body {
 }
 
 .row {
-    padding: 15px;
-    border-style: solid;
-    background-color: white;
+    color: white;
 }
 
 .slider {

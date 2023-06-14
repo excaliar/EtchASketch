@@ -14,6 +14,8 @@ for (let i = 0; i < 16; i++) {
     }
 }
 
+const clear = document.querySelector('.clear');
+
 //assigns gridboxes to variables
 let boxes = document.querySelectorAll('.row')
 let subs = document.querySelectorAll('.subContainer')
@@ -24,10 +26,18 @@ let gridSize = document.querySelector('.gridSize');
 gridSize.textContent = `${slide.value} x ${slide.value}`;
 
 //changes color of individual box in grid upon mouse hover
+//dynamic adjustmend of box width and height (max-width/max-height = 480px)
 boxes.forEach((box) => {
+    box.style.cssText = `width: ${480/slide.value}px; height: ${480/slide.value}px`;
+
     box.addEventListener('mouseover', () => {
-        box.style.cssText = 'background: black';
+        box.style.cssText = `background: black; width: ${480/slide.value}px; height: ${480/slide.value}px`;
     });
+    //resets color of all boxes back to white
+    clear.addEventListener('click', ()=> {
+        box.style.cssText = `background: white; width: ${480/slide.value}px; height: ${480/slide.value}px`;
+    });
+
 });
 
 slide.addEventListener('change', () => {
@@ -59,10 +69,18 @@ slide.addEventListener('change', () => {
     subs = document.querySelectorAll('.subContainer')
 
     //changes color of individual box in grid upon mouse hover
+    //dynamic adjustmend of box width and height (max-width/max-height = 480px)
     boxes.forEach((box) => {
+
+        box.style.cssText = `width: ${480/slide.value}px; height: ${480/slide.value}px`;
         box.addEventListener('mouseover', () => {
-            box.style.cssText = 'background: black';
+            box.style.cssText = `background: black; width: ${480/slide.value}px; height: ${480/slide.value}px`;
+        });
+        //resets color of all boxes back to white
+        clear.addEventListener('click', ()=> {
+            box.style.cssText = `background: white; width: ${480/slide.value}px; height: ${480/slide.value}px`;
         });
     });
-
 });
+
+
