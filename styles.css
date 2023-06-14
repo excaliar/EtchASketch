@@ -14,6 +14,18 @@ body {
     font-weight: bold;
 }
 
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.ccolor {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .sketch {
     display: flex;
 }

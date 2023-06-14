@@ -25,13 +25,16 @@ let slide = document.querySelector('.slider');
 let gridSize = document.querySelector('.gridSize');
 gridSize.textContent = `${slide.value} x ${slide.value}`;
 
+//color selector
+let ccolor = document.querySelector('.color')
+
 //changes color of individual box in grid upon mouse hover
 //dynamic adjustmend of box width and height (max-width/max-height = 480px)
 boxes.forEach((box) => {
     box.style.cssText = `width: ${480/slide.value}px; height: ${480/slide.value}px`;
 
     box.addEventListener('mouseover', () => {
-        box.style.cssText = `background: black; width: ${480/slide.value}px; height: ${480/slide.value}px`;
+        box.style.cssText = `background: ${ccolor.value}; width: ${480/slide.value}px; height: ${480/slide.value}px`;
     });
     //resets color of all boxes back to white
     clear.addEventListener('click', ()=> {
@@ -74,7 +77,7 @@ slide.addEventListener('change', () => {
 
         box.style.cssText = `width: ${480/slide.value}px; height: ${480/slide.value}px`;
         box.addEventListener('mouseover', () => {
-            box.style.cssText = `background: black; width: ${480/slide.value}px; height: ${480/slide.value}px`;
+            box.style.cssText = `background: ${ccolor.value}; width: ${480/slide.value}px; height: ${480/slide.value}px`;
         });
         //resets color of all boxes back to white
         clear.addEventListener('click', ()=> {
